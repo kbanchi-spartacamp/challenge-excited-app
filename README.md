@@ -4,6 +4,10 @@
 
 https://docs.google.com/spreadsheets/d/1VFd2y1Y8dnjgAvS_c9fTA69DEW1dZkMF2lo1asfQVk4/edit?usp=sharing
 
+## プレゼンテーション
+
+https://docs.google.com/presentation/d/1_IQEJ7LBx1BsK9_iUJJpFHyhpw48szx8tvW2LWx-CaM/edit#slide=id.p
+
 ## 環境構築
 
 * Clone & Sail Up
