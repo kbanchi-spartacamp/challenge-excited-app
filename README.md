@@ -2,7 +2,7 @@
 
 ## 設計書
 
-https://docs.google.com/spreadsheets/d/1VFd2y1Y8dnjgAvS_c9fTA69DEW1dZkMF2lo1asfQVk4/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1FpCpyWIypzsSCZYrnm3-v01HlyzbF1RC6tujjsWOqeU/edit#gid=0
 
 ## プレゼンテーション
 
@@ -10,7 +10,7 @@ https://docs.google.com/presentation/d/1_IQEJ7LBx1BsK9_iUJJpFHyhpw48szx8tvW2LWx-
 
 ## モックアップ
 
-https://prottapp.com/app/#/projects/618c8ea486e4653238318cc1/screens/618c8f2786e46544d33184a3
+https://prottapp.com/p/76c1c5
 
 ## 環境構築
 
