@@ -21,6 +21,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('challenges/history', [
+    App\Http\Controllers\ChallengeController::class, 'history'
+])->name('challenges.history');
+
 Route::resource('challenges', App\Http\Controllers\ChallengeController::class);
 
 Route::resource('user_avators', App\Http\Controllers\UserAvatorController::class);

@@ -14,7 +14,7 @@ class ChallengeController extends Controller
      */
     public function index()
     {
-        //
+        return view('challenges.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ChallengeController extends Controller
      */
     public function create()
     {
-        //
+        return view('challenges.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-        //
+        return view('challenges.show', compact('challenge'));
     }
 
     /**
@@ -81,5 +81,10 @@ class ChallengeController extends Controller
     public function destroy(Challenge $challenge)
     {
         //
+    }
+
+    public function history()
+    {
+        return view('challenges.history');
     }
 }

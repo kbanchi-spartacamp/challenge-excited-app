@@ -24,7 +24,7 @@ class UserAvatorController extends Controller
      */
     public function create()
     {
-        //
+        return view('user_avators.create');
     }
 
     /**
