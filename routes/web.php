@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::resource('challenges', App\Http\Controllers\ChallengeController::class);
+
+Route::resource('user_avators', App\Http\Controllers\UserAvatorController::class);
+
+Route::resource('challenges.comments', App\Http\Controllers\CommentController::class);
+
+Route::resource('challenges.goods', App\Http\Controllers\GoodController::class);
