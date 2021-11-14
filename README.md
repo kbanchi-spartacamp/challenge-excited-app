@@ -2,7 +2,11 @@
 
 ## 設計書
 
-https://docs.google.com/spreadsheets/d/1VFd2y1Y8dnjgAvS_c9fTA69DEW1dZkMF2lo1asfQVk4/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1FpCpyWIypzsSCZYrnm3-v01HlyzbF1RC6tujjsWOqeU/edit#gid=1733422850
+
+## プレゼンピッチ
+
+https://docs.google.com/presentation/d/1_IQEJ7LBx1BsK9_iUJJpFHyhpw48szx8tvW2LWx-CaM/edit#slide=id.p
 
 ## 環境構築
 
@@ -20,9 +24,22 @@ $ docker run --rm \
 $ cp .env.example .env
 $ sail up -d
 $ sail artisan key:generate
-$ sail artisan migrate:fresh --seed
+$ sail artisan migrate:fresh
 ```
 
 * GCPのcredential
 
 credential.jsonをchallenge-excited-app/配下に配置してください
+
+## DBリフレッシュ
+
+```
+sail artisan migrate:fresh
+sail artisan db:seed
+sail artisan db:seed --class ChallengeSeeder
+sail artisan db:seed --class AvatorCategorySeeder
+sail artisan db:seed --class AvatorImageSeeder
+sail artisan db:seed --class UserAvatorSeeder
+sail artisan db:seed --class GoodSeeder
+sail artisan db:seed --class CommentSeeder
+```
