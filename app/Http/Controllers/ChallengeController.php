@@ -57,7 +57,7 @@ class ChallengeController extends Controller
      */
     public function edit(Challenge $challenge)
     {
-        //
+        //TODO 編集画面の操作を書きたい
     }
 
     /**
@@ -69,7 +69,7 @@ class ChallengeController extends Controller
      */
     public function update(Request $request, Challenge $challenge)
     {
-        //
+        //TODO 更新画面の操作を書きたい  編集と同じ感じ？
     }
 
     /**
@@ -80,11 +80,17 @@ class ChallengeController extends Controller
      */
     public function destroy(Challenge $challenge)
     {
-        //
+        //TODO 削除するためのDELETE
+        $challenge->delete();
+
+        return redirect()->route('challenge.show', $challenge)
+        ->with('notice', '挑戦を取り消しました');
     }
 
     public function history()
     {
+        //TODO 挑戦の履歴？
+
         return view('challenges.history');
     }
 }

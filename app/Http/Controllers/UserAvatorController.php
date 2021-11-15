@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AvatorCategory;
 use App\Models\UserAvator;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,10 @@ class UserAvatorController extends Controller
      */
     public function create()
     {
-        return view('user_avators.create');
+        $avatorcategories = AvatorCategory::all();
+        return view('user_avators.create',compact('avatorcategories'));
+
+
     }
 
     /**
@@ -35,7 +39,23 @@ class UserAvatorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $useravator = new UserAvator();
+        $useravator->user_id = $request->user()->id;
+        $useravator->avator_category_id = $request->avatorcategory_id;
+        $useravator->level = 0;
+
+
+        try {
+            // 登録
+            $useravator->save();
+        } catch (\Exception $e) {
+            return back()->withInput()
+                ->withErrors('アバター情報登録処理でエラーが発生しました');
+        }
+
+        return redirect()
+            ->route('challenges.create')
+            ->with('notice', 'アバター情報を登録しました');
     }
 
     /**
@@ -46,7 +66,8 @@ class UserAvatorController extends Controller
      */
     public function show(UserAvator $userAvator)
     {
-        //
+        $avatorcategories = AvatorCategory::all();
+        return view('user_avators.create', compact('avatorcategories'));
     }
 
     /**
