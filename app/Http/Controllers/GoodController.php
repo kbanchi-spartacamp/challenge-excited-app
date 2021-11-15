@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Challenge;
 use App\Models\Good;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GoodController extends Controller
 {
@@ -33,9 +35,26 @@ class GoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Challenge $challenge)
     {
-        //
+        $good = new Good();
+        $good->user_id = $request->user()->id;
+        $good->challenge_id = $challenge->id;
+
+        DB::beginTransaction();
+        try {
+            // 登録
+            $good->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withInput()
+                ->withErrors('いいね登録でエラーが発生しました');
+        }
+
+        return redirect()
+            ->route('challenges.show', $challenge)
+            ->with('notice', 'いいねを登録しました');
     }
 
     /**
@@ -78,8 +97,20 @@ class GoodController extends Controller
      * @param  \App\Models\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Good $good)
+    public function destroy(Challenge $challenge, Good $good)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $good->delete();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withInput()
+                ->withErrors('いいね取り消しでエラーが発生しました');
+        }
+
+        return redirect()
+            ->route('challenges.show', $challenge)
+            ->with('notice', 'いいねを取り消しました');
     }
 }

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Challenge;
+use App\Models\Good;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ChallengeController extends Controller
 {
@@ -12,9 +15,20 @@ class ChallengeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('challenges.index');
+        $keyword = $request->keyword;
+
+        $query = Challenge::query();
+        $query->where('user_id', '<>', Auth::user()->id);
+        if (!empty($keyword)) {
+            $query->where('title', 'like', '%' . $keyword . '%');
+            $query->orWhere('description', 'like', '%' . $keyword . '%');
+        }
+        $challenges = $query->paginate(10);
+        $challenges->appends(compact('keyword'));
+
+        return view('challenges.index', compact('challenges', 'keyword'));
     }
 
     /**
@@ -35,7 +49,27 @@ class ChallengeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $challenge = new Challenge();
+        $challenge->user_id = $request->user()->id;
+        $challenge->title = $request->title;
+        $challenge->description = $request->description;
+        $challenge->close_flg = 0;
+
+        DB::beginTransaction();
+        try {
+            // 登録
+            $challenge->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withInput()
+                ->withErrors('挑戦登録でエラーが発生しました');
+        }
+
+        return redirect()
+            ->route('challenges.history')
+            ->with('notice', '新しい挑戦を登録しました');
     }
 
     /**
@@ -46,7 +80,9 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-        return view('challenges.show', compact('challenge'));
+        $good = Good::where('user_id', Auth::user()->id)
+            ->where('challenge_id', $challenge->id)->first();
+        return view('challenges.show', compact('challenge', 'good'));
     }
 
     /**
@@ -84,13 +120,12 @@ class ChallengeController extends Controller
         $challenge->delete();
 
         return redirect()->route('challenge.show', $challenge)
-        ->with('notice', '挑戦を取り消しました');
+            ->with('notice', '挑戦を取り消しました');
     }
 
     public function history()
     {
-        //TODO 挑戦の履歴？
-
-        return view('challenges.history');
+        $challenges = Challenge::where('user_id', Auth::user()->id)->get();
+        return view('challenges.history', compact('challenges'));
     }
 }

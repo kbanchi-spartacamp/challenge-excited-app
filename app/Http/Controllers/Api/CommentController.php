@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Comment;
+use Illuminate\Support\Facades\DB;
+use App\Models\Challenge;
 
 class CommentController extends Controller
 {
@@ -14,7 +17,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::all();
+        return $comments;
     }
 
     /**
@@ -25,7 +29,23 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = new Comment();
+        $comment->user_id = $request->user_id;
+        $comment->challenge_id = $request->challenge_id;
+        $comment->comment = $request->comment;
+
+        DB::beginTransaction();
+        try {
+            // 登録
+            $comment->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withInput()
+                ->withErrors('コメント登録でエラーが発生しました');
+        }
+
+        return $comment;
     }
 
     /**

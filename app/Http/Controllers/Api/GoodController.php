@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Good;
+use Illuminate\Support\Facades\DB;
 
 class GoodController extends Controller
 {
@@ -25,7 +27,22 @@ class GoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $good = new Good();
+        $good->user_id = $request->user_id;
+        $good->challenge_id = $request->challenge_id;
+
+        DB::beginTransaction();
+        try {
+            // 登録
+            $good->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withInput()
+                ->withErrors('いいね登録でエラーが発生しました');
+        }
+
+        return $good;
     }
 
     /**
@@ -59,6 +76,19 @@ class GoodController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $good = Good::find($id);
+
+        DB::beginTransaction();
+        try {
+            $good->delete();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withInput()
+                ->withErrors('いいね取り消しでエラーが発生しました');
+        }
+
+        return $good;
     }
 }

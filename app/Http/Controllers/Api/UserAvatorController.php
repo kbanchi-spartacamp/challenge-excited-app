@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\UserAvator;
+use Illuminate\Support\Facades\DB;
 
 class UserAvatorController extends Controller
 {
@@ -25,7 +27,23 @@ class UserAvatorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userAvator = new UserAvator();
+        $userAvator->user_id = $request->user_id;
+        $userAvator->avator_category_id = $request->avatorCategory_id;
+        $userAvator->level = 0;
+
+        DB::beginTransaction();
+        try {
+            // 登録
+            $userAvator->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withInput()
+                ->withErrors('アバター情報登録処理でエラーが発生しました');
+        }
+
+        return $userAvator;
     }
 
     /**
@@ -36,7 +54,8 @@ class UserAvatorController extends Controller
      */
     public function show($id)
     {
-        //
+        $userAvator = UserAvator::find($id);
+        return $userAvator;
     }
 
     /**

@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Challenge extends Model
 {
     use HasFactory;
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function goods()
+    {
+        return $this->hasMany(Good::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
