@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
 Route::get('/legal', function () {
     return view('legal');
 })->name('legal');
@@ -31,12 +27,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('challenges/history', [
     App\Http\Controllers\ChallengeController::class, 'history'
-])->name('challenges.history');
+])->name('challenges.history')->middleware('auth');
 
-Route::resource('challenges', App\Http\Controllers\ChallengeController::class);
+Route::resource('challenges', App\Http\Controllers\ChallengeController::class)
+    ->middleware('auth');
 
-Route::resource('user_avators', App\Http\Controllers\UserAvatorController::class);
+Route::resource('user_avators', App\Http\Controllers\UserAvatorController::class)
+    ->middleware('auth');
 
-Route::resource('challenges.comments', App\Http\Controllers\CommentController::class);
+Route::resource('challenges.comments', App\Http\Controllers\CommentController::class)
+    ->middleware('auth');
 
-Route::resource('challenges.goods', App\Http\Controllers\GoodController::class);
+Route::resource('challenges.goods', App\Http\Controllers\GoodController::class)
+    ->middleware('auth');

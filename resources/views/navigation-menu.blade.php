@@ -5,32 +5,49 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="/">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
-                        {{ __('ABOUT THIS APP') }}
+                    @auth
+                        <x-jet-nav-link href="{{ route('challenges.create') }}"
+                            :active="request()->routeIs('challenges.create')">
+                            {{ __('挑戦する') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('challenges.history') }}"
+                            :active="request()->routeIs('challenges.history')">
+                            {{ __('これまでの挑戦') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('challenges.index') }}"
+                            :active="request()->routeIs('challenges.index')">
+                            {{ __('他人の挑戦') }}
+                        </x-jet-nav-link>
+                    @endauth
+                    <x-jet-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
+                        {{ __('利用ガイド') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
                         {{ __('利用規約') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('challenges.create') }}"
-                        :active="request()->routeIs('challenges.create')">
-                        {{ __('挑戦する') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('challenges.history') }}"
-                        :active="request()->routeIs('challenges.history')">
-                        {{ __('これまでの挑戦') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('challenges.index') }}"
-                        :active="request()->routeIs('challenges.index')">
-                        {{ __('他人の挑戦') }}
-                    </x-jet-nav-link>
                 </div>
+            </div>
+
+            <div class="flex justify-end flex-wrap content-center">
+                <!-- Navigation Links -->
+                @auth
+                @else
+                    <div class="m-2">
+                        <a href="{{ route('login') }}"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{{ __('Login') }}</a>
+                    </div>
+                    <div class="m-2">
+                        <a href="{{ route('register') }}"
+                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">{{ __('アカウント登録') }}</a>
+                    </div>
+                @endauth
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -121,12 +138,6 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
-                {{ __('ABOUT US') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
-                {{ __('LEGAL') }}
-            </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('challenges.create') }}"
                 :active="request()->routeIs('challenges.create')">
                 {{ __('挑戦する') }}
@@ -138,6 +149,9 @@
             <x-jet-responsive-nav-link href="{{ route('challenges.index') }}"
                 :active="request()->routeIs('challenges.index')">
                 {{ __('他人の挑戦') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
+                {{ __('利用規約') }}
             </x-jet-responsive-nav-link>
         </div>
 
@@ -165,13 +179,6 @@
                     :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>
-
-                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}"
-                        :active="request()->routeIs('api-tokens.index')">
-                        {{ __('API Tokens') }}
-                    </x-jet-responsive-nav-link>
-                @endif
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
