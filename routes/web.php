@@ -15,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/legal', function () {
+    return view('legal');
+})->name('legal');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
