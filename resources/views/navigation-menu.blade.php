@@ -50,14 +50,14 @@
                 @endauth
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <!-- Teams Dropdown -->
+            @auth
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    <!-- Teams Dropdown -->
 
-                <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
-                    <x-jet-dropdown align="right" width="48">
-                        <x-slot name="trigger">
-                            @auth
+                    <!-- Settings Dropdown -->
+                    <div class="ml-3 relative">
+                        <x-jet-dropdown align="right" width="48">
+                            <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button
                                         class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
@@ -80,85 +80,87 @@
                                         </button>
                                     </span>
                                 @endif
-                            @endauth
-                        </x-slot>
+                            </x-slot>
 
-                        <x-slot name="content">
-                            <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
-                            </div>
+                            <x-slot name="content">
+                                <!-- Account Management -->
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Manage Account') }}
+                                </div>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
-                            </x-jet-dropdown-link>
-
-                            <x-jet-dropdown-link href="{{ route('user_avators.create') }}">
-                                {{ __('アバター') }}
-                            </x-jet-dropdown-link>
-
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                    {{ __('API Tokens') }}
+                                <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                    {{ __('Profile') }}
                                 </x-jet-dropdown-link>
-                            @endif
 
-                            <div class="border-t border-gray-100"></div>
-
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                <x-jet-dropdown-link href="{{ route('user_avators.create') }}">
+                                    {{ __('アバター') }}
                                 </x-jet-dropdown-link>
-                            </form>
-                        </x-slot>
-                    </x-jet-dropdown>
+
+                                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                                    <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
+                                        {{ __('API Tokens') }}
+                                    </x-jet-dropdown-link>
+                                @endif
+
+                                <div class="border-t border-gray-100"></div>
+
+                                <!-- Authentication -->
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-jet-dropdown-link>
+                                </form>
+                            </x-slot>
+                        </x-jet-dropdown>
+                    </div>
                 </div>
-            </div>
+            @endauth
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+            @auth
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button @click="open = ! open"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                            <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            @endauth
         </div>
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('challenges.create') }}"
-                :active="request()->routeIs('challenges.create')">
-                {{ __('挑戦する') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('challenges.history') }}"
-                :active="request()->routeIs('challenges.history')">
-                {{ __('これまでの挑戦') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('challenges.index') }}"
-                :active="request()->routeIs('challenges.index')">
-                {{ __('他人の挑戦') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
-                {{ __('利用規約') }}
-            </x-jet-responsive-nav-link>
-        </div>
+    @auth
+        <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <x-jet-responsive-nav-link href="{{ route('challenges.create') }}"
+                    :active="request()->routeIs('challenges.create')">
+                    {{ __('挑戦する') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('challenges.history') }}"
+                    :active="request()->routeIs('challenges.history')">
+                    {{ __('これまでの挑戦') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('challenges.index') }}"
+                    :active="request()->routeIs('challenges.index')">
+                    {{ __('他人の挑戦') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
+                    {{ __('利用規約') }}
+                </x-jet-responsive-nav-link>
+            </div>
 
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                @auth
+            <!-- Responsive Settings Options -->
+            <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="flex items-center px-4">
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                         <div class="flex-shrink-0 mr-3">
                             <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
@@ -170,28 +172,28 @@
                         <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                         <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                     </div>
-                @endauth
-            </div>
+                </div>
 
-            <div class="mt-3 space-y-1">
-                <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}"
-                    :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
-                </x-jet-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                <div class="mt-3 space-y-1">
+                    <!-- Account Management -->
+                    <x-jet-responsive-nav-link href="{{ route('profile.show') }}"
+                        :active="request()->routeIs('profile.show')">
+                        {{ __('Profile') }}
                     </x-jet-responsive-nav-link>
-                </form>
 
-                <!-- Team Management -->
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-jet-responsive-nav-link>
+                    </form>
+
+                    <!-- Team Management -->
+                </div>
             </div>
         </div>
-    </div>
+    @endauth
 </nav>
