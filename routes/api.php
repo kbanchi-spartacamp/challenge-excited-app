@@ -25,3 +25,7 @@ Route::group(['middleware' => ['api']], function () {
     Route::apiResource('challenges.comments', App\Http\Controllers\Api\CommentController::class);
     Route::apiResource('challenges.goods', App\Http\Controllers\Api\GoodController::class);
 });
+
+Route::post('/register', [App\Http\Controllers\Api\RegisterController::class, 'register']);
+
+Route::post('/login', [App\Http\Controllers\Api\LoginController::class, 'login']);
