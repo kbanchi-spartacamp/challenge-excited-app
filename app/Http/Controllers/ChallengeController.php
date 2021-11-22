@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AvatorImage;
 use App\Models\Challenge;
 use App\Models\Good;
+use App\Models\UserAvator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +19,11 @@ class ChallengeController extends Controller
      */
     public function index(Request $request)
     {
+        // $goodCount = Good::where('user_id', $request->user()->id)->get();
+        // $challenges = Challenge::where('user_id', $request->user()->id)
+        //     ->where('close_flg', 1)->get();
+        // dd($goodCount);
+
         $keyword = $request->keyword;
 
         $query = Challenge::query();
@@ -25,7 +32,7 @@ class ChallengeController extends Controller
             $query->where('title', 'like', '%' . $keyword . '%');
             $query->orWhere('description', 'like', '%' . $keyword . '%');
         }
-        $challenges = $query->paginate(10);
+        $challenges = $query->latest()->paginate(10);
         $challenges->appends(compact('keyword'));
 
         return view('challenges.index', compact('challenges', 'keyword'));
@@ -38,7 +45,15 @@ class ChallengeController extends Controller
      */
     public function create()
     {
-        return view('challenges.create');
+        $userAvator = UserAvator::where('user_id', Auth::user()->id)->with('avator_category')->first();
+        $avatorImage = "";
+        if (!empty($userAvator)) {
+            $avatorImage = AvatorImage::where('avator_category_id', $userAvator->avator_category_id)
+                ->where('level', '>=', $userAvator->level)
+                ->orderBy('level', 'asc')
+                ->first();
+        }
+        return view('challenges.create', compact('userAvator', 'avatorImage'));
     }
 
     /**
@@ -125,7 +140,14 @@ class ChallengeController extends Controller
 
     public function history()
     {
-        $challenges = Challenge::where('user_id', Auth::user()->id)->get();
-        return view('challenges.history', compact('challenges'));
+        $messages = [
+            'no_challenge' => '',
+        ];
+        $challenges = Challenge::where('user_id', Auth::user()->id)->latest()->get();
+        if ($challenges->count() == 0) {
+            $messages['no_challenge'] = 'まだ挑戦がありません。';
+        }
+        return view('challenges.history', compact('challenges'))
+            ->with($messages);;
     }
 }

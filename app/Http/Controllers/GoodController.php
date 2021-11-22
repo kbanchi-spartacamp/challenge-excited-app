@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Challenge;
 use App\Models\Good;
+use App\Models\UserAvator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -51,6 +52,21 @@ class GoodController extends Controller
             return back()->withInput()
                 ->withErrors('いいね登録でエラーが発生しました');
         }
+
+        $query = Good::query();
+        $param = [
+            'user_id' => $challenge->user_id
+        ];
+        $query->whereHas('challenge', function ($q) use ($param) {
+            $q->where('user_id', $param['user_id']);
+        });
+        $goodCount = $query->get()->count();
+        $challengesCount = Challenge::where('user_id', $challenge->user_id)
+            ->where('close_flg', 1)->get()->count();
+        $level = (int)floor(($goodCount + $challengesCount) / 10);
+        $userAvator = UserAvator::where('user_id', $challenge->user_id)->first();
+        $userAvator->level = $level;
+        $userAvator->save();
 
         return redirect()
             ->route('challenges.show', $challenge)

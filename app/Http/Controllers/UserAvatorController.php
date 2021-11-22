@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AvatorCategory;
+use App\Models\AvatorImage;
 use App\Models\UserAvator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,9 +28,25 @@ class UserAvatorController extends Controller
      */
     public function create()
     {
-        $userAvator = UserAvator::where('user_id', Auth::user()->id)->first();
+
+        $messages = [
+            'no_avator' => '',
+        ];
+        $userAvator = UserAvator::where('user_id', Auth::user()->id)->with('avator_category')->first();
+        if (empty($userAvator)) {
+            $messages['no_avator'] = 'まずは、アバターを設定してください。';
+        }
         $avatorCategories = AvatorCategory::all();
-        return view('user_avators.create', compact('avatorCategories', 'userAvator'));
+        $avatorImages = AvatorImage::where('level', -1)->get();
+        $avatorImage = "";
+        if (!empty($userAvator)) {
+            $avatorImage = AvatorImage::where('avator_category_id', $userAvator->avator_category_id)
+                ->where('level', '>=', $userAvator->level)
+                ->orderBy('level', 'asc')
+                ->first();
+        }
+        return view('user_avators.create', compact('avatorCategories', 'userAvator', 'avatorImages', 'avatorImage'))
+            ->with($messages);
     }
 
     /**

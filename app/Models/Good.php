@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Good extends Model
 {
     use HasFactory;
+
+    public function challenge()
+    {
+        return $this->belongsTo(Challenge::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class AvatorCategory extends Model
 {
     use HasFactory;
+
+    public function avator_images()
+    {
+        return $this->hasMany(AvatorImage::class);
+    }
 }

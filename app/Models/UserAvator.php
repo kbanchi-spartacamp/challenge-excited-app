@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class UserAvator extends Model
 {
     use HasFactory;
+
+    public function avator_category()
+    {
+        return $this->belongsTo(AvatorCategory::class);
+    }
 }

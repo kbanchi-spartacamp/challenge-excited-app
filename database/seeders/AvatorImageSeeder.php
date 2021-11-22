@@ -17,13 +17,18 @@ class AvatorImageSeeder extends Seeder
         $param = [
             [
                 'avator_category_id' => 1,
-                'level' => 10,
-                'image_path' => 'brave_01.png'
+                'level' => -1,
+                'image_path' => 'yuusya_game.png'
             ],
             [
-                'avator_category_id' => 1,
-                'level' => 25,
-                'image_path' => 'brave_02.png'
+                'avator_category_id' => 2,
+                'level' => -1,
+                'image_path' => 'mahoutsukai_man.png'
+            ],
+            [
+                'avator_category_id' => 3,
+                'level' => -1,
+                'image_path' => 'kung-fu_man.png'
             ],
         ];
         DB::table('avator_images')->insert($param);
