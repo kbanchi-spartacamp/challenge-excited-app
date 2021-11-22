@@ -23,10 +23,10 @@
                         </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('challenges.index') }}"
                             :active="request()->routeIs('challenges.index')">
-                            {{ __('他人の挑戦') }}
+                            {{ __('仲間の挑戦') }}
                         </x-jet-nav-link>
                     @endauth
-                    <x-jet-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
+                    <x-jet-nav-link href="{{ route('guide') }}" :active="request()->routeIs('guide')">
                         {{ __('利用ガイド') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
@@ -151,7 +151,7 @@
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('challenges.index') }}"
                     :active="request()->routeIs('challenges.index')">
-                    {{ __('他人の挑戦') }}
+                    {{ __('仲間の挑戦') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('legal') }}" :active="request()->routeIs('legal')">
                     {{ __('利用規約') }}

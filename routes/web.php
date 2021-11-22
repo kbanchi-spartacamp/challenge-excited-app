@@ -21,6 +21,10 @@ Route::get('/legal', function () {
     return view('legal');
 })->name('legal');
 
+Route::get('/guide', function () {
+    return view('guide');
+})->name('guide');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
