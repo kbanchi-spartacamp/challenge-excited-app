@@ -40,7 +40,7 @@
                             <div class="inline-flex items-center ">
                                 <img class="
                             object-center object-cover rounded-full h-36 w-36"
-                                    src="/images/yuusya_game.png" alt="photo">
+                                    src="/images/yuusya/yuusya_game.png" alt="photo">
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             <div class="inline-flex items-center ">
                                 <img class="
                             object-center object-cover rounded-full h-36 w-36"
-                                    src="/images/mahoutsukai_woman.png" alt="photo">
+                                    src="/images/mahoutsukai/mahoutsukai_man.png" alt="photo">
                             </div>
                         </div>
                     </div>
@@ -78,12 +78,12 @@
                         <p class="mt-2 mb-4 text-blueGray-500">
                             挑戦する仲間に対し、<br>
                             良いねと激励の言葉で応援
-                    </p>
+                        </p>
                         <div class="mb-8 font-semibold ">
                             <div class="inline-flex items-center ">
                                 <img class="
                             object-center object-cover rounded-full h-36 w-36"
-                                    src="/images/kung-fu_man.png" alt="photo">
+                                    src="/images/butouka/kung-fu_man.png" alt="photo">
                             </div>
                         </div>
                     </div>
@@ -117,9 +117,9 @@
                     自分の人生を振りかえった時・・・<br>
                     思い返すのは、「失敗」ではなく「挑戦しなかったことへの後悔」と言われています。
                 </p>
-                
+
             </div>
-           
+
         </div>
 
         <div class="flex mb-10">
@@ -138,7 +138,7 @@
         </div>
 
 
-        
+
 
 
         <div class="container mx-auto px-4">
