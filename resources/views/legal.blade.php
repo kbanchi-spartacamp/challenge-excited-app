@@ -1,19 +1,8 @@
 <x-guest-layout>
     <div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
         <div class="rounded-lg shadow-xl bg-gray-900 text-gray-400">
-            <div class="border-b border-gray-800 px-8 py-3">
-                <div class="inline-block w-3 h-3 mr-2 rounded-full bg-red-500"></div>
-                <div class="inline-block w-3 h-3 mr-2 rounded-full bg-yellow-300"></div>
-                <div class="inline-block w-3 h-3 mr-2 rounded-full bg-green-400"></div>
-            </div>
-            <div class="px-8 py-6 font-mono break-all">
-                <p>&lt;!<span class="text-pink-500">DOCTYPE</span> html&gt;</p>
-                <p>&lt;<span class="text-pink-500">html</span>&gt;</p>
-                <p>&lt;<span class="text-pink-500">head</span>&gt;</p>
-
                 <h2>利用規約</h2>
-
-                この規約（以下「本規約」といいます）は、MENTA株式会社（以下「当社」といいます）が提供する、個人間や個人と法人間でメンタリングによる指導、支援又は育成をしたい方とされたい方がマッチングできるサービス「MENTA」（以下「本サービス」といいます）の利用に関する条件を、本サービスを利用する者（以下「ユーザー」といいます）と当社の間で定めるものです。本規約は本サービスの利用に関して生ずるすべての関係に適用されるものとし、ユーザーは、本規約を熟読し、本規約の内容を十分に理解した上でこれを承諾して、本サイトを利用するものとします。本サービスを利用することで、下記の利用規約に同意していただいたこととみなさせていただきますのでご注意ください。<br>
+                この規約（以下「本規約」といいます）は、スパルタキャンプが提供する、個人間や個人と法人間でメンタリングによる指導、支援又は育成をしたい方とされたい方がマッチングできるサービス「MENTA」（以下「本サービス」といいます）の利用に関する条件を、本サービスを利用する者（以下「ユーザー」といいます）と当社の間で定めるものです。本規約は本サービスの利用に関して生ずるすべての関係に適用されるものとし、ユーザーは、本規約を熟読し、本規約の内容を十分に理解した上でこれを承諾して、本サイトを利用するものとします。本サービスを利用することで、下記の利用規約に同意していただいたこととみなさせていただきますのでご注意ください。<br>
                 <br>
                 第1条（本サービスの利用）<br>
                 ユーザーは、本規約の定めに従って当サービスを利用しなければなりません。<br>
@@ -188,31 +177,4 @@
                 本利用規約の準拠法は日本法とし、本利用規約及び本サービスに関する一切の紛争について訴訟の必要が生じた場合、東京地方裁判所又は東京簡易裁判所を第一審の専属的合意管轄裁判所とします。<br>
                 附則<br>
                 2021年11月01日　改定<br>
-                <br>
-                2021年10月25日　改定<br>
-                <br>
-                2021年06月24日　改定<br>
-                <br>
-                2021年05月25日　改定<br>
-                <br>
-                2021年03月15日　改定<br>
-                <br>
-                2021年02月16日　改定<br>
-                <br>
-                2020年02月20日　改定<br>
-                <br>
-                2019年11月22日　改定<br>
-                <br>
-                2019年10月10日　改定<br>
-                <br>
-                2018年06月04日　制定<br>
-
-                <p class="ml-10">&lt;/<span class="text-pink-500">main</span>&gt;</p>
-                <p>&lt;/<span class="text-pink-500">body</span>&gt;</p>
-                <p>&lt;/<span class="text-pink-500">html</span>&gt;</p>
-            </div>
-        </div>
-    </div>
-
-
 </x-guest-layout>

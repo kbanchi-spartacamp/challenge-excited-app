@@ -21,7 +21,7 @@
                         <label class="block text-white mb-2" for="description">
                             内容
                         </label>
-                        <textarea name="description" rows="10"
+                        <textarea name="description" rows="5"
                             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-pink-600 w-full py-2 px-3"
                             required placeholder="なにを、いつ、なぜ、どのように">{{ old('description') }}</textarea>
                     </div>

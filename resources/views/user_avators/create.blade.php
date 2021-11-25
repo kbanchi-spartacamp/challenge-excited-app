@@ -3,14 +3,14 @@
     <x-flash-message :message="$no_avator" />
     <x-validation-errors :errors="$errors" />
 
-    <div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
+    <div class="min-w-screen min-h-screen bg-gray-200 flex justify-center px-5 py-5">
         <div class="rounded-lg w-5/6 shadow-xl bg-gray-900 text-gray-700">
             <div class="px-8 py-6 font-mono break-all">
                 <h2 class="text-center text-lg text-white font-bold pt-6 tracking-widest mb-10">
                     @if (empty($userAvator))
-                        アバター登録
+                        My アバター登録
                     @else
-                        アバター情報
+                        My アバター
                     @endif
                 </h2>
 

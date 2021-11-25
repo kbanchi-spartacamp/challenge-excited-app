@@ -29,7 +29,7 @@
                                 <form action="{{ route('challenges.goods.store', $challenge) }}" method="POST">
                                     @csrf
                                     <input type="submit" value="いいね"
-                                        class="bg-gradient-to-r bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 sm:mr-2 mb-2 sm:mb-0">
+                                        class="bg-gradient-to-r from-red-400 to-red-800 hover:bg-gradient-to-l hover:from-red-800 hover:to-red-400 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 sm:mr-2 mb-2 sm:mb-0">
                                 </form>
                             @else
                                 <form action="{{ route('challenges.goods.destroy', [$challenge, $good]) }}"
@@ -37,7 +37,7 @@
                                     @csrf
                                     @method('delete')
                                     <input type="submit" value="いいね取り消し"
-                                        class="bg-gradient-to-r from-pink-500 to-purple-600 hover:bg-gradient-to-l hover:from-purple-500 hover:to-pink-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 sm:mr-2 mb-2 sm:mb-0">
+                                        class="bg-gradient-to-r from-yellow-200 to-yellow-800 hover:bg-gradient-to-l hover:from-yellowe-800 hover:to-yellow-200 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 sm:mr-2 mb-2 sm:mb-0">
                                 </form>
                             @endif
                         @endif
@@ -56,11 +56,11 @@
                         @if (auth()->user()->id == $challenge->user->id)
                             @if ($challenge->close_flg == 0)
                                 <input type="submit" value="結果報告"
-                                    class="bg-gradient-to-r bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 sm:mr-2 mb-2 sm:mb-0">
+                                    class="bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 sm:mr-2 mb-2 sm:mb-0">
                             @endif
                         @else
                             <input type="submit" value="激励"
-                                class="bg-gradient-to-r from-pink-500 to-purple-600 hover:bg-gradient-to-l hover:from-purple-500 hover:to-pink-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 sm:mr-2 mb-2 sm:mb-0">
+                                    class="bg-gradient-to-r from-yellow-300 to-yellow-600 hover:bg-gradient-to-l hover:from-yellow-600 hover:to-yellow-300 text-gray-100 p-2 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 w-full sm:w-32 sm:mr-2 mb-2 sm:mb-0">
                         @endif
                     </div>
                     @if ((auth()->user()->id == $challenge->user->id && $challenge->close_flg == 0) || auth()->user()->id != $challenge->user->id)

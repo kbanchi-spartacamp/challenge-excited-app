@@ -147,7 +147,7 @@
                     <div
                         class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
                         <div class="flex-auto p-5 lg:p-10">
-                            <h4 class="text-2xl font-semibold">お問い合わせはこちら</h4>
+                            <h4 class="text-2xl font-semibold">登録はこちら</h4>
                             <p class="leading-relaxed mt-1 mb-4 text-blueGray-500">
                                 Complete this form and we will get back to you in 24 hours.
                             </p>
