@@ -27,8 +27,11 @@
                             @foreach ($challenges as $challenge)
                                 <div class="bg-white w-full px-10 py-8 hover:shadow-2xl transition duration-500">
                                     <div class="mt-4">
-                                        <div class="flex justify-between text-sm items-center mb-4">
-                                            <div></div>
+                                        <div class="flex justify-between text-sm items-center">
+                                            <div>
+                                                <div>{{ $challenge->user->user_avator->avator_category->name }} Level
+                                                    : {{ $challenge->user->user_avator->level }}</div>
+                                            </div>
                                             <div class="text-gray-700 text-right">
                                                 <div>{{ $challenge->goods->count() }} いいね</div>
                                             </div>

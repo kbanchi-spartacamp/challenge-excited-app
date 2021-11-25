@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
         <div class="rounded-lg shadow-xl bg-gray-900 text-gray-400">
             <h2>利用規約</h2>
@@ -177,4 +177,4 @@
             本利用規約の準拠法は日本法とし、本利用規約及び本サービスに関する一切の紛争について訴訟の必要が生じた場合、東京地方裁判所又は東京簡易裁判所を第一審の専属的合意管轄裁判所とします。<br>
             附則<br>
             2021年11月01日　改定<br>
-</x-guest-layout>
+</x-app-layout>

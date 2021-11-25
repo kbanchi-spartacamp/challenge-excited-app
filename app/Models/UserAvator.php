@@ -9,6 +9,11 @@ class UserAvator extends Model
 {
     use HasFactory;
 
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
+
     public function avator_category()
     {
         return $this->belongsTo(AvatorCategory::class);
