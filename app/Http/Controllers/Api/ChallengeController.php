@@ -96,7 +96,7 @@ class ChallengeController extends Controller
 
     public function history(Request $request)
     {
-        $challenges = Challenge::where('user_id', $request->user_id)->get();
+        $challenges = Challenge::with('user')->where('user_id', $request->user_id)->get();
         return $challenges;
     }
 }
