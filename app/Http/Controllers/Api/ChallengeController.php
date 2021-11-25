@@ -24,7 +24,7 @@ class ChallengeController extends Controller
             $query->where('title', 'like', '%' . $keyword . '%');
             $query->orWhere('description', 'like', '%' . $keyword . '%');
         }
-        $challenges = $query->get();
+        $challenges = $query->with('user')->get();
 
         return $challenges;
     }
@@ -65,7 +65,7 @@ class ChallengeController extends Controller
      */
     public function show($id)
     {
-        $challenge = Challenge::find($id);
+        $challenge = Challenge::with('user')->find($id);
         return $challenge;
     }
 
