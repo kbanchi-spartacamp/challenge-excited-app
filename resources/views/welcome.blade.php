@@ -10,6 +10,7 @@
                     <div class="w-full lg:w-6/12 px-3 ml-auto mr-auto text-center">
                         <div class="pr-12">
                             <h1 class="text-white font-semibold text-6xl">
+                                わくチャレ<br>
                                 チャレンジの緊張を興奮へ
                             </h2>
                             <p class="mt-4 text-lg text-blueGray-200">
@@ -103,7 +104,7 @@
             <div class="w-full lg:w-6/12 lg:max-w-lg md:w-1/2 ">
                 <img class="object-cover object-center rounded-lg h-60" alt="hero" src="images/error.png">
             </div>
-        </div>
+        
 
         <div class="flex mb-10">
             <div class="w-full lg:w-3/12 lg:max-w-lg md:w-1/2">
@@ -230,4 +231,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </x-guest-layout>
