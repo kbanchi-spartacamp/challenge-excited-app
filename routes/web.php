@@ -33,13 +33,17 @@ Route::get('challenges/history', [
 ])->name('challenges.history')->middleware('auth');
 
 Route::resource('challenges', App\Http\Controllers\ChallengeController::class)
+    ->only(['index', 'create', 'store', 'show', 'destroy'])
     ->middleware('auth');
 
 Route::resource('user_avators', App\Http\Controllers\UserAvatorController::class)
+    ->only(['create', 'store', 'show'])
     ->middleware('auth');
 
 Route::resource('challenges.comments', App\Http\Controllers\CommentController::class)
+    ->only(['store'])
     ->middleware('auth');
 
 Route::resource('challenges.goods', App\Http\Controllers\GoodController::class)
+    ->only(['store', 'destroy'])
     ->middleware('auth');

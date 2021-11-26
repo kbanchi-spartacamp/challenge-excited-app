@@ -10,11 +10,11 @@
                     <div class="w-full lg:w-6/12 px-3 ml-auto mr-auto text-center">
                         <div class="pr-12">
                             <h1 class="text-white font-semibold text-6xl">
-                                チャレンジの緊張を興奮へ
-                            </h2>
-                            <p class="mt-4 text-lg text-blueGray-200">
-                                あなたの挑戦をサポートします
-                            </p>
+                                わくチャレ<br>チャレンジの緊張を興奮へ
+                                </h2>
+                                <p class="mt-4 text-lg text-blueGray-200">
+                                    あなたの挑戦をサポートします
+                                </p>
                         </div>
                     </div>
                 </div>
