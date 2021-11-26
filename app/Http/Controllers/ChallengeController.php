@@ -95,9 +95,18 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
+        $challenge = Challenge::with('user')->find($challenge->id);
         $good = Good::where('user_id', Auth::user()->id)
             ->where('challenge_id', $challenge->id)->first();
-        return view('challenges.show', compact('challenge', 'good'));
+        $userAvator = UserAvator::where('user_id', $challenge->user->id)->with('avator_category')->first();
+        $avatorImage = "";
+        if (!empty($userAvator)) {
+            $avatorImage = AvatorImage::where('avator_category_id', $userAvator->avator_category_id)
+                ->where('level', '>=', $userAvator->level)
+                ->orderBy('level', 'asc')
+                ->first();
+        }
+        return view('challenges.show', compact('challenge', 'good', 'avatorImage'));
     }
 
     /**
