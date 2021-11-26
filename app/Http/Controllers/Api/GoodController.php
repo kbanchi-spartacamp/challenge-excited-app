@@ -84,10 +84,10 @@ class GoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($challenge_id, $good_id)
     {
 
-        $good = Good::find($id);
+        $good = Good::find($good_id);
 
         DB::beginTransaction();
         try {
