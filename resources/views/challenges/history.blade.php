@@ -24,7 +24,7 @@
                                                 <a class="hover:text-red-500 text-yellow-500 font-bold"
                                                     href="{{ route('challenges.show', $challenge) }}">{{ $challenge->title }}</a>
                                             </h2>
-                                            <p>{{ $challenge->description }}</p>
+                                            <p>{{ Str::limit($challenge->description, 300) }}</p>
                                         </div>
                                     </div>
                                 @endforeach

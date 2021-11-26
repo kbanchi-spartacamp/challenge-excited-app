@@ -4,7 +4,7 @@
     <x-validation-errors :errors="$errors" />
 
     <div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
-        <div class="rounded-lg w-5/6 shadow-xl bg-gray-900 text-gray-400">
+        <div class="rounded-lg w-5/6 shadow-xl bg-gray-900">
             <div class="px-8 py-6 font-mono break-all">
                 <article class="mb-2">
                     @if (auth()->user()->id != $challenge->user->id)
@@ -73,7 +73,7 @@
                     @if ((auth()->user()->id == $challenge->user->id && $challenge->close_flg == 0) || auth()->user()->id != $challenge->user->id)
                         <textarea name="comment" rows="3"
                             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-pink-600 w-full py-2 px-3"
-                            required placeholder="コメントを記入">{{ old('comment') }}</textarea>
+                            required placeholder="コメントを記入" maxlength="300">{{ old('comment') }}</textarea>
                     @endif
                 </form>
                 @foreach ($challenge->comments as $comment)
