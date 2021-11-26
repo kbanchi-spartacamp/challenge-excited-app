@@ -10,8 +10,8 @@
                     <div class="w-full lg:w-6/12 px-3 ml-auto mr-auto text-center">
                         <div class="pr-12">
                             <h1 class="text-white font-semibold text-6xl">
-                                チャレンジの緊張を<br>興奮へ
-                            </h1>
+                                チャレンジの緊張を興奮へ
+                            </h2>
                             <p class="mt-4 text-lg text-blueGray-200">
                                 あなたの挑戦をサポートします
                             </p>
@@ -40,7 +40,7 @@
                             <div class="inline-flex items-center ">
                                 <img class="
                             object-center object-cover rounded-full h-36 w-36"
-                                    src="/images/yuusya_game.png" alt="photo">
+                                    src="/images/yuusya/yuusya_game.png" alt="photo">
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             <div class="inline-flex items-center ">
                                 <img class="
                             object-center object-cover rounded-full h-36 w-36"
-                                    src="/images/mahoutsukai_woman.png" alt="photo">
+                                    src="/images/mahoutsukai/mahoutsukai_man.png" alt="photo">
                             </div>
                         </div>
                     </div>
@@ -78,12 +78,12 @@
                         <p class="mt-2 mb-4 text-blueGray-500">
                             挑戦する仲間に対し、<br>
                             良いねと激励の言葉で応援
-                    </p>
+                        </p>
                         <div class="mb-8 font-semibold ">
                             <div class="inline-flex items-center ">
                                 <img class="
                             object-center object-cover rounded-full h-36 w-36"
-                                    src="/images/kung-fu_man.png" alt="photo">
+                                    src="/images/butouka/kung-fu_man.png" alt="photo">
                             </div>
                         </div>
                     </div>
@@ -117,9 +117,9 @@
                     自分の人生を振りかえった時・・・<br>
                     思い返すのは、「失敗」ではなく「挑戦しなかったことへの後悔」と言われています。
                 </p>
-                
+
             </div>
-           
+
         </div>
 
         <div class="flex mb-10">
@@ -138,7 +138,7 @@
         </div>
 
 
-        
+
 
 
         <div class="container mx-auto px-4">
@@ -147,7 +147,7 @@
                     <div
                         class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
                         <div class="flex-auto p-5 lg:p-10">
-                            <h4 class="text-2xl font-semibold">お問い合わせはこちら</h4>
+                            <h4 class="text-2xl font-semibold">登録はこちら</h4>
                             <p class="leading-relaxed mt-1 mb-4 text-blueGray-500">
                                 Complete this form and we will get back to you in 24 hours.
                             </p>

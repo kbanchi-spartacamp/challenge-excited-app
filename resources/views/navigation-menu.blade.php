@@ -13,6 +13,10 @@
                 <!-- Navigation Links -->
                 <div class="space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @auth
+                        <x-jet-nav-link href="{{ route('user_avators.create') }}"
+                            :active="request()->routeIs('user_avators.create')">
+                            {{ __('My アバター') }}
+                        </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('challenges.create') }}"
                             :active="request()->routeIs('challenges.create')">
                             {{ __('挑戦する') }}
@@ -109,7 +113,7 @@
                                     @csrf
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                            this.closest('form').submit();">
+                                                                        this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -141,6 +145,10 @@
     @auth
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
+                <x-jet-responsive-nav-link href="{{ route('user_avators.create') }}"
+                    :active="request()->routeIs('user_avators.create')">
+                    {{ __('My アバター') }}
+                </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('challenges.create') }}"
                     :active="request()->routeIs('challenges.create')">
                     {{ __('挑戦する') }}
@@ -186,7 +194,7 @@
                         @csrf
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            this.closest('form').submit();">
+                                                        this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>

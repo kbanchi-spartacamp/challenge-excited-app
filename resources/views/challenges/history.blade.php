@@ -3,7 +3,7 @@
     <x-flash-message :message="session('notice')" />
     <x-flash-message :message="$no_challenge" />
     <x-validation-errors :errors="$errors" />
-    <div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
+    <div class="min-w-screen min-h-screen bg-gray-200 flex  justify-center px-5 py-5">
         @if ($challenges->count() != 0)
             <div class="rounded-lg w-5/6 shadow-xl bg-gray-900 text-gray-400">
                 <div class="px-8 py-6 font-mono break-all">

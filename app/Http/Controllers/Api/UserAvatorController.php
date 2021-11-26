@@ -14,9 +14,15 @@ class UserAvatorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user_id = $request->user_id;
+        if (empty($user_id)) {
+            $user_avators = UserAvator::all();
+        } else {
+            $user_avators = UserAvator::with('avator_category')->where('user_id', $user_id)->first();
+        }
+        return $user_avators;
     }
 
     /**
