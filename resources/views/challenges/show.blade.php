@@ -8,7 +8,7 @@
             <div class="px-8 py-6 font-mono break-all">
                 <article class="mb-2">
                     @if (auth()->user()->id != $challenge->user->id)
-                        <div class="flex justify-center mt-1 mb-3">
+                        <div class="flex justify-center mt-1 mb-3 text-white">
                             {{ $challenge->user->name }} さん
                         </div>
                     @else
@@ -21,13 +21,13 @@
                             <div>
                                 <img width="200px" height="200px" src="/images/{{ $avatorImage->image_path }}" alt=""
                                     class="rounded-full object-cover mr-3">
-                                <div class="flex justify-center">
+                                <div class="flex justify-center text-white">
                                     Level : {{ $challenge->user->user_avator->level }}
                                 </div>
                             </div>
                         @endif
                     </div>
-                    <div class="flex justify-end mt-1 mb-3">
+                    <div class="flex justify-end mt-1 mb-3 text-white">
                         <span>{{ $challenge->goods->count() }} いいね</span>
                     </div>
                     <div class="flex justify-end text-sm">
@@ -77,7 +77,7 @@
                     @endif
                 </form>
                 @foreach ($challenge->comments as $comment)
-                    <div class="my-2">
+                    <div class="my-2 text-white">
                         @if ($comment->user->id == auth()->user()->id)
                             <span class="font-bold mr-3 text-red-500">{{ $comment->user->name }}</span>
                         @else
