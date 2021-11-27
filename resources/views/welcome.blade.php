@@ -10,11 +10,12 @@
                     <div class="w-full lg:w-6/12 px-3 ml-auto mr-auto text-center">
                         <div class="pr-12">
                             <h1 class="text-white font-semibold text-6xl">
+                                わくチャレ<br>
                                 チャレンジの緊張を興奮へ
-                            </h2>
-                            <p class="mt-4 text-lg text-blueGray-200">
-                                あなたの挑戦をサポートします
-                            </p>
+                                </h2>
+                                <p class="mt-4 text-lg text-blueGray-200">
+                                    あなたの挑戦をサポートします
+                                </p>
                         </div>
                     </div>
                 </div>
@@ -136,98 +137,97 @@
                 <img class="object-cover object-center rounded-lg h-60" alt="hero" src="images/skydiving_couple.png">
             </div>
         </div>
+    </div>
+    </div>
 
 
 
 
-
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center">
-                <div class="w-full lg:w-6/12 px-4">
-                    <div
-                        class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
-                        <div class="flex-auto p-5 lg:p-10">
-                            <h4 class="text-2xl font-semibold">登録はこちら</h4>
-                            <p class="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                                Complete this form and we will get back to you in 24 hours.
-                            </p>
-                            <div class="relative w-full mb-3 mt-8">
-                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                    for="full-name">Full
-                                    Name</label><input type="text"
-                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                    placeholder="Full Name">
-                            </div>
-                            <div class="relative w-full mb-3">
-                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                    for="email">Email</label><input type="email"
-                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                    placeholder="Email">
-                            </div>
-                            <div class="relative w-full mb-3">
-                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                    for="message">Message</label><textarea rows="4" cols="80"
-                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                    placeholder="Type a message..."></textarea>
-                            </div>
-                            <div class="text-center mt-6">
-                                <button
-                                    class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                    type="button">
-                                    Send Message
-                                </button>
-                            </div>
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center">
+            <div class="w-full lg:w-6/12 px-4">
+                <div
+                    class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
+                    <div class="flex-auto p-5 lg:p-10">
+                        <h4 class="text-2xl font-semibold">登録はこちら</h4>
+                        <p class="leading-relaxed mt-1 mb-4 text-blueGray-500">
+                            Complete this form and we will get back to you in 24 hours.
+                        </p>
+                        <div class="relative w-full mb-3 mt-8">
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="full-name">Full
+                                Name</label><input type="text"
+                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                placeholder="Full Name">
+                        </div>
+                        <div class="relative w-full mb-3">
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                for="email">Email</label><input type="email"
+                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                placeholder="Email">
+                        </div>
+                        <div class="relative w-full mb-3">
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                for="message">Message</label><textarea rows="4" cols="80"
+                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                placeholder="Type a message..."></textarea>
+                        </div>
+                        <div class="text-center mt-6">
+                            <button
+                                class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button">
+                                Send Message
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <footer class="mb-6 px-6 md:px-0">
-            <div class="grid gap-5 grid-cols-5 container mx-auto space-x-6">
-                <div>
-                    <h1 class="text-2xl font-bold text-gray-500">ワクチャレ</h1>
-                    <p>チャレンジの緊張を興奮へ</p>
-                    <spa>© スパルタキャンプ 2021.</spa>
-                </div>
-                <div class="pt-2">
-                    <ul>
-                        <li>Home</li>
-                        <li>About us</li>
-                        <li>F.A.Q</li>
-                        <li>Help</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-                <div class="pt-2">
-                    <ul>
-                        <li>利用ガイド</li>
-                        <li>利用規約</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="pt-2">
-                    <ul>
-                        <li>アバター登録</li>
-                        <li>挑戦する</li>
-                        <li>これまでの挑戦</li>
-                        <li>仲間の挑戦</li>
+    <footer class="mb-6 px-6 md:px-0">
+        <div class="grid gap-5 grid-cols-5 container mx-auto space-x-6">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-500">ワクチャレ</h1>
+                <p>チャレンジの緊張を興奮へ</p>
+                <span>© スパルタキャンプ 2021.</span>
+            </div>
+            <div class="pt-2">
+                <ul>
+                    <li>Home</li>
+                    <li>About us</li>
+                    <li>F.A.Q</li>
+                    <li>Help</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="pt-2">
+                <ul>
+                    <li>利用ガイド</li>
+                    <li>利用規約</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="pt-2">
+                <ul>
+                    <li>アバター登録</li>
+                    <li>挑戦する</li>
+                    <li>これまでの挑戦</li>
+                    <li>仲間の挑戦</li>
+                </ul>
+            </div>
+    </footer>
 
-                    </ul>
-                </div>
-        </footer>
-
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap items-center md:justify-between justify-center">
-                <div class="w-full md:w-6/12 px-4 mx-auto text-center">
-                    <div class="text-sm text-blueGray-500 font-semibold py-1">
-                        <a href="" class="text-blueGray-500 hover:text-gray-800"
-                            href="https://hachimantai.spartacamp.jp/" class="text-blueGray-500 hover:text-blueGray-800"
-                            target="_blank"> © スパルタキャンプ.2021</a>
-                    </div>
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap items-center md:justify-between justify-center">
+            <div class="w-full md:w-6/12 px-4 mx-auto text-center">
+                <div class="text-sm text-blueGray-500 font-semibold py-1">
+                    <a href="" class="text-blueGray-500 hover:text-gray-800" href="https://hachimantai.spartacamp.jp/"
+                        class="text-blueGray-500 hover:text-blueGray-800" target="_blank"> © スパルタキャンプ.2021</a>
                 </div>
             </div>
         </div>
+    </div>
+
 </x-guest-layout>
