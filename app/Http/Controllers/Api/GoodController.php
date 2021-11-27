@@ -14,9 +14,19 @@ class GoodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $id)
     {
-        //
+        $challenge_id = $id;
+        $user_id = $request->user_id;
+
+        $query = Good::query();
+        $query->where('challenge_id', $challenge_id);
+        if (!empty($user_id)) {
+            $query->where('user_id', $user_id);
+        }
+        $goods = $query->get();
+
+        return $goods;
     }
 
     /**
@@ -74,10 +84,10 @@ class GoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($challenge_id, $good_id)
     {
 
-        $good = Good::find($id);
+        $good = Good::find($good_id);
 
         DB::beginTransaction();
         try {

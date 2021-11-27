@@ -11,19 +11,21 @@
                     @csrf
                     <div class="mb-4">
                         <label class="block text-white mb-2" for="title">
-                            タイトル
+                            内容
                         </label>
                         <input type="text" name="title"
                             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-pink-600 w-full py-2 px-3"
-                            required placeholder="タイトル" value="{{ old('title') }}">
+                            required placeholder="どのような挑戦をするか  例)ランチでいつも行かないお店に行く！！！" value="{{ old('title') }}"
+                            maxlength="100">
                     </div>
                     <div class="mb-4">
                         <label class="block text-white mb-2" for="description">
-                            内容
+                            理由
                         </label>
                         <textarea name="description" rows="5"
                             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-pink-600 w-full py-2 px-3"
-                            required placeholder="なにを、いつ、なぜ、どのように">{{ old('description') }}</textarea>
+                            required placeholder="なぜ、なにを、いつ、どのように
+例)いつも同じところで食べているから、新しい食べ物を発見するため" maxlength="500">{{ old('description') }}</textarea>
                     </div>
                     @if (!empty($userAvator))
                         <div class="mb-4 flex justify-center">

@@ -20,10 +20,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['api']], function () {
     Route::get('/challenges/history', [App\Http\Controllers\Api\ChallengeController::class, 'history'])->name('challenges.history');
-    Route::apiResource('challenges', App\Http\Controllers\Api\ChallengeController::class);
-    Route::apiResource('user_avators', App\Http\Controllers\Api\UserAvatorController::class);
-    Route::apiResource('challenges.comments', App\Http\Controllers\Api\CommentController::class);
-    Route::apiResource('challenges.goods', App\Http\Controllers\Api\GoodController::class);
+    Route::apiResource('challenges', App\Http\Controllers\Api\ChallengeController::class)
+        ->middleware('auth');
+    Route::apiResource('user_avators', App\Http\Controllers\Api\UserAvatorController::class)
+        ->middleware('auth');
+    Route::apiResource('challenges.comments', App\Http\Controllers\Api\CommentController::class)
+        ->middleware('auth');
+    Route::apiResource('challenges.goods', App\Http\Controllers\Api\GoodController::class)
+        ->middleware('auth');
 });
 
 Route::post('/register', [App\Http\Controllers\Api\RegisterController::class, 'register']);
